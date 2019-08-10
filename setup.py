@@ -1,3 +1,5 @@
+from setuptools import setup, find_packages
+
 setup(
     name="synapse-simple-antispam",
     version="0.0.1",

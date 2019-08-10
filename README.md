@@ -19,3 +19,6 @@ spam_checker:
       - badcorp.example.org
       - evil.example.com
 ```
+
+Synapse will need to be restarted to apply the changes. To modify the list of homeservers,
+update the config and restart Synapse.

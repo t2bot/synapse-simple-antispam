@@ -1,1 +1,1 @@
-from . import AntiSpamInvites
+from .antispam import AntiSpamInvites

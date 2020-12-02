@@ -6,7 +6,7 @@ class AntiSpamInvites(object):
     def check_event_for_spam(self, event):
         if self._block_messages_too:
             for bad_hs in self._block_invites_from:
-                if inviter_user_id.endswith(":" + bad_hs):
+                if event.get("sender", "").endswith(":" + bad_hs):
                     return True # not allowed (spam)
         return False # not spam
 

@@ -18,6 +18,8 @@ spam_checker:
     blocked_homeservers:
       - badcorp.example.org
       - evil.example.com
+    # Set to true to block messages from the above homeservers as well
+    block_messages: true
 ```
 
 Synapse will need to be restarted to apply the changes. To modify the list of homeservers,

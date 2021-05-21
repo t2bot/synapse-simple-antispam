@@ -60,7 +60,7 @@ class AntiSpamRegex(object):
 
     def check_event_for_spam(self, event):
         for msg in self._blocked_texts:
-            if msg.match(event.get("content", {}).get("body", "")):
+            if msg.search(event.get("content", {}).get("body", "")):
                 return True # not allowed (spam)
         return False # not spam
 

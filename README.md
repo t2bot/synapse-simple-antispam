@@ -12,14 +12,25 @@ pip install git+https://github.com/t2bot/synapse-simple-antispam#egg=synapse-sim
 Then add to your `homeserver.yaml`:
 ```yaml
 spam_checker:
+  # Module to block invites from listed homeservers
   - module: "synapse_simple_antispam.AntiSpamInvites"
     config:
       # A list of homeservers to block invites from.
       blocked_homeservers:
         - badcorp.example.org
         - evil.example.com
-      # Set to true to block messages from the above homeservers as well
-      block_messages: true
+  # Module to block messages from listed homeservers
+  - module: "synapse_simple_antispam.AntiSpamHomeserverMessages"
+    config:
+      # A list of homeservers to block messages from.
+      blocked_homeservers:
+        - badcorp.example.org
+        - evil.example.com
+  # Module to block messages with the given text
+  - module: "synapse_simple_antispam.AntiSpamText"
+    config:
+      blocked_messages:
+        - "This is spam. Spammy spam spam."
 ```
 
 Synapse will need to be restarted to apply the changes. To modify the list of homeservers,

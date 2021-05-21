@@ -1,1 +1,3 @@
-from .antispam import AntiSpamInvites
+from .invites import AntiSpamInvites
+from .messages import AntiSpamHomeserverMessages
+from .messages import AntiSpamText

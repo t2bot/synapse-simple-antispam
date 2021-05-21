@@ -35,7 +35,8 @@ spam_checker:
   - module: "synapse_simple_antispam.AntiSpamRegex"
     config:
       blocked_messages:
-        - "*spam*"
+        - "spam"  # "spam" anywhere in the message
+        - "sp[am]+" # "spammmm", "spaaaammmmm", etc
 ```
 
 Synapse will need to be restarted to apply the changes. To modify the list of homeservers,

@@ -8,7 +8,7 @@ class AntiSpamHomeserverMessages:
             check_event_for_spam=self.check_event_for_spam,
         )
 
-    def check_event_for_spam(self, event):
+    async def check_event_for_spam(self, event):
         for bad_hs in self._blocked_homeservers:
             if event.sender.endswith(":" + bad_hs):
                 if self._soft_fail:
@@ -29,7 +29,7 @@ class AntiSpamText:
             check_event_for_spam=self.check_event_for_spam,
         )
 
-    def check_event_for_spam(self, event):
+    async def check_event_for_spam(self, event):
         for msg in self._blocked_texts:
             if event.content.get("body", "") == msg:
                 if self._soft_fail:
@@ -50,7 +50,7 @@ class AntiSpamRegex:
             check_event_for_spam=self.check_event_for_spam,
         )
 
-    def check_event_for_spam(self, event):
+    async def check_event_for_spam(self, event):
         for msg in self._blocked_texts:
             if msg.search(event.content.get("body", "")):
                 if self._soft_fail:
